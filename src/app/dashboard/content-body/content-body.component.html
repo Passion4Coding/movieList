@@ -1,0 +1,111 @@
+<div fxLayout="column" class="mainContainer">
+  <div fxLayout="row">
+    <h2>Search for a movie {{ searchingMovie }}</h2>
+  </div>
+
+  <div fxLayout="row">
+    <mat-form-field appearance="outline">
+      <mat-icon matSuffix>search</mat-icon>
+      <input
+        matInput
+        autocomplete="off"
+        placeholder="Search for your favourite movie"
+        [(ngModel)]="searchingMovie"
+        (keyup)="searchMovie($event)"
+      />
+    </mat-form-field>
+  </div>
+
+  <div
+    *ngIf="searchingMovie == ''"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    style="height: 300px"
+  >
+    <h2>Welcome to Moviepedia</h2>
+  </div>
+
+  <div
+    fxLayout.gt-sm="row"
+    fxLayout="column"
+    fxLayoutAlign="space-between center"
+    fxLayoutGap.gt.sm="15px"
+    fxLayoutGap="20px"
+    *ngIf="keyPressed && searchingMovie != ''"
+  >
+    <div fxFlex="33" class="movieBox">
+      <div fxFlex="50" class="movieImg">
+        <img
+          src="{{ showMovies.Poster }}"
+          title="{{ showMovies.Title }} Poster"
+          alt="{{ showMovies.Title }} Poster"
+        />
+      </div>
+      <div fxFlex="50" class="movieText">
+        <h3>{{ showMovies.Title }}</h3>
+        <p>
+          Released -
+          <span> {{ showMovies.Year }}</span>
+        </p>
+        <p>
+          Rating -
+          <span> {{ showMovies.imdbRating }}</span>
+        </p>
+        <p>
+          Type -
+          <span> {{ showMovies.Type }}</span>
+        </p>
+      </div>
+    </div>
+
+    <div fxFlex="33" class="movieBox">
+      <div fxFlex="50" class="movieImg">
+        <img
+          src="{{ showMovies.Poster }}"
+          title="{{ showMovies.Title }} Poster"
+          alt="{{ showMovies.Title }} Poster"
+        />
+      </div>
+      <div fxFlex="50" class="movieText">
+        <h3>{{ showMovies.Title }}</h3>
+        <p>
+          Released -
+          <span> {{ showMovies.Year }}</span>
+        </p>
+        <p>
+          Rating -
+          <span> {{ showMovies.imdbRating }}</span>
+        </p>
+        <p>
+          Type -
+          <span> {{ showMovies.Type }}</span>
+        </p>
+      </div>
+    </div>
+
+    <div fxFlex="33" class="movieBox">
+      <div fxFlex="50" class="movieImg">
+        <img
+          src="{{ showMovies.Poster }}"
+          title="{{ showMovies.Title }} Poster"
+          alt="{{ showMovies.Title }} Poster"
+        />
+      </div>
+      <div fxFlex="50" class="movieText">
+        <h3>{{ showMovies.Title }}</h3>
+        <p>
+          Released -
+          <span> {{ showMovies.Year }}</span>
+        </p>
+        <p>
+          Rating -
+          <span> {{ showMovies.imdbRating }}</span>
+        </p>
+        <p>
+          Type -
+          <span> {{ showMovies.Type }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

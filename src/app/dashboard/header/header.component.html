@@ -1,0 +1,31 @@
+<mat-toolbar id="toolbar">
+  <mat-toolbar-row>
+    <button
+      mat-icon-button
+      (click)="sidenav.toggle()"
+      fxShow="true"
+      fxHide.gt-sm
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="heading"> MOVIEPEDIA </span>
+    <span class="menu-spacer"></span>
+    <div fxShow="true" fxHide.lt-md>
+      <a href="#" mat-button class="navMenu">All Movies</a>
+      <a href="#" mat-button class="navMenu"> About </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a href="#" mat-button class="navMenu">All Movies</a> <br />
+      <a href="#" mat-button class="navMenu"> About </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <app-content-body></app-content-body>
+  </mat-sidenav-content>
+</mat-sidenav-container>
