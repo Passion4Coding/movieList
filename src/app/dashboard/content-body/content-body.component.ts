@@ -7,24 +7,20 @@ import { MoviesService } from 'src/app/services/movies.service';
   styleUrls: ['./content-body.component.css'],
 })
 export class ContentBodyComponent implements OnInit {
-  constructor(private _service: MoviesService) {}
-
   searchingMovie = '';
   movie = '';
   showMovies: any;
   keyPressed: boolean = false;
 
+  constructor(private _service: MoviesService) {}
+
   ngOnInit(): void {}
 
   searchMovie(event: any) {
-    console.log('Movie Name searched => ', event.target.value);
     this.movie = event.target.value;
-
     this._service.getMovie(this.movie).subscribe((res) => {
-      console.log('This is movie list on keyPress => ', res);
       this.showMovies = res;
       this.keyPressed = true;
-      console.log('This is movie list this.showMovies => ', this.showMovies);
     });
   }
 }
