@@ -36,7 +36,6 @@ body {
 }
 
 /* Header Starts */
-
 .heading,
 .navMenu {
   font-size: 20px;
@@ -57,17 +56,24 @@ body {
 
 /* Main Body Starts */
 .movieBox {
-  background-color: lavender;
-  width: 300px;
+  display: flex;
+  width: 33%;
   height: 250px;
-  border-radius: 10px;
-  padding: 15px;
-  margin: 5px auto;
+  float: left;
+  margin: 10px auto;
+  background-color: aquamarine;
+  padding: 10px;
+  border-radius: 8px;
 }
 
-.movieBox .movieImg img {
+.movieImg {
+  width: 45%;
+}
+
+.movieImg img {
   width: 90%;
   height: 100%;
+  border-radius: 4px;
 }
 
 .movieText h3,
@@ -92,7 +98,8 @@ body {
 .mainContainer {
   padding: 10px 20px 10px 35px;
   z-index: 5;
-  max-height: 80vh;
+  background-color: white;
+  overflow: auto;
 }
 
 .mainContainer h2 {
@@ -106,6 +113,7 @@ body {
 .mainContainer .mat-form-field {
   width: 25%;
 }
+
 /* Main Body Ends */
 
 /* Footer Starts */
@@ -154,21 +162,25 @@ body {
   }
 
   .mainContainer h2 {
-    font-size: 26px;
+    font-size: 24px;
     font-family: "Poppins-Medium";
     height: 30px;
     padding: 5px;
     margin: 5px 0 15px;
   }
 
-  .movieBox {
-    width: 95%;
+  .mainContainer #movieName {
+    height: 100%;
   }
 
   .mainContainer {
     padding-top: 0;
     max-height: 80vh;
     overflow: scroll;
+  }
+
+  .movieBox {
+    width: 100%;
   }
 
   /* Main Body  */

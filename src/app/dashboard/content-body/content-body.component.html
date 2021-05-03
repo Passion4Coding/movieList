@@ -1,6 +1,6 @@
 <div fxLayout="column" class="mainContainer">
   <div fxLayout="row">
-    <h2>Search for a movie {{ searchingMovie }}</h2>
+    <h2 id="movieName">Search for a movie {{ searchingMovie }}</h2>
   </div>
 
   <div fxLayout="row">
@@ -33,78 +33,26 @@
     fxLayoutGap="20px"
     *ngIf="keyPressed && searchingMovie != ''"
   >
-    <div fxFlex="33" class="movieBox">
-      <div fxFlex="50" class="movieImg">
-        <img
-          src="{{ showMovies.Poster }}"
-          title="{{ showMovies.Title }} Poster"
-          alt="{{ showMovies.Title }} Poster"
-        />
-      </div>
-      <div fxFlex="50" class="movieText">
-        <h3>{{ showMovies.Title }}</h3>
-        <p>
-          Released -
-          <span> {{ showMovies.Year }}</span>
-        </p>
-        <p>
-          Rating -
-          <span> {{ showMovies.imdbRating }}</span>
-        </p>
-        <p>
-          Type -
-          <span> {{ showMovies.Type }}</span>
-        </p>
-      </div>
-    </div>
-
-    <div fxFlex="33" class="movieBox">
-      <div fxFlex="50" class="movieImg">
-        <img
-          src="{{ showMovies.Poster }}"
-          title="{{ showMovies.Title }} Poster"
-          alt="{{ showMovies.Title }} Poster"
-        />
-      </div>
-      <div fxFlex="50" class="movieText">
-        <h3>{{ showMovies.Title }}</h3>
-        <p>
-          Released -
-          <span> {{ showMovies.Year }}</span>
-        </p>
-        <p>
-          Rating -
-          <span> {{ showMovies.imdbRating }}</span>
-        </p>
-        <p>
-          Type -
-          <span> {{ showMovies.Type }}</span>
-        </p>
-      </div>
-    </div>
-
-    <div fxFlex="33" class="movieBox">
-      <div fxFlex="50" class="movieImg">
-        <img
-          src="{{ showMovies.Poster }}"
-          title="{{ showMovies.Title }} Poster"
-          alt="{{ showMovies.Title }} Poster"
-        />
-      </div>
-      <div fxFlex="50" class="movieText">
-        <h3>{{ showMovies.Title }}</h3>
-        <p>
-          Released -
-          <span> {{ showMovies.Year }}</span>
-        </p>
-        <p>
-          Rating -
-          <span> {{ showMovies.imdbRating }}</span>
-        </p>
-        <p>
-          Type -
-          <span> {{ showMovies.Type }}</span>
-        </p>
+    <div style="display: flex; flex-wrap: wrap">
+      <div class="movieBox" *ngFor="let show of showMovies">
+        <div class="movieImg">
+          <img
+            src="{{ show.Poster }}"
+            title="{{ show.Title }} Poster"
+            alt="{{ show.Title }} Poster"
+          />
+        </div>
+        <div class="movieText">
+          <h3>{{ show.Title }}</h3>
+          <p>
+            Released -
+            <span> {{ show.Year }}</span>
+          </p>
+          <p>
+            Type -
+            <span> {{ show.Type }}</span>
+          </p>
+        </div>
       </div>
     </div>
   </div>

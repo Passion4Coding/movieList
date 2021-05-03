@@ -9,7 +9,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class ContentBodyComponent implements OnInit {
   searchingMovie = '';
   movie = '';
-  showMovies: any;
+  showMovies :any = [];
   keyPressed: boolean = false;
 
   constructor(private _service: MoviesService) {}
@@ -18,9 +18,13 @@ export class ContentBodyComponent implements OnInit {
 
   searchMovie(event: any) {
     this.movie = event.target.value;
-    this._service.getMovie(this.movie).subscribe((res) => {
-      this.showMovies = res;
-      this.keyPressed = true;
-    });
+    if(this.movie.length >= 2) { // if searched movie name is greater than 2
+      this._service.getMovie(this.movie).subscribe((data) => {
+          this.showMovies = data.Search;
+          this.keyPressed = true;      
+      });
+    }
+
+    
   }
 }
